@@ -1,0 +1,304 @@
+$bleu_text : #26313D; 
+$orange :  #ff9518;
+$bleu_button : #287AE6;
+$gris_fonce : #323C48;
+$blanc_text : #ecf0f1;
+$font_ubuntu : 'Ubuntu', sans-serif;
+$font_titillium : 'Titillium Web', sans-serif;
+
+@keyframes autofill {
+    0%,100% {
+        color: black;
+        background-image: url("../image/user.png");
+        background-color: transparent;
+    }
+}
+@keyframes arrow_bounce{
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+}
+
+#username:-webkit-autofill {
+    animation-delay: 1s; 
+    animation-name: autofill;
+    animation-fill-mode: both;
+}
+html{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    body{
+        font-family: $font_titillium;
+        margin: 0;
+        padding: 0;
+    }
+}
+header p{
+    font-size: 1.8em;
+    color: $bleu_text;
+    margin-top: 0;
+    margin-left: 3vw;
+    margin-top: 1.5vh;
+    font-family: $font_ubuntu;
+    font-weight: bold;
+    margin-bottom: 10vh;
+}
+#username, #password{
+    font-family: $font_titillium;
+    width: 20vw;
+    margin:auto;
+    border: none;
+    border-bottom: 2px solid $bleu_text;
+    margin-top: 5vh;
+    outline: none;
+    color: $bleu_text;
+    padding-left: 30px;
+    padding-bottom: 6px;
+    font-size: 1em;
+    &:focus{
+        border: none;
+        border-bottom: 2px solid $orange ;
+        transition: 200ms;
+    }
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#formulaire{
+    margin: auto;
+    width: 30vw;
+    margin-bottom: 10vh;
+    background-color: white;
+    h1{
+        color: $bleu_text;
+        font-size: 1.9em;
+        text-align: center;
+        padding-top: 15vh;
+        padding-bottom: 7vh;
+        font-family: $font_titillium;
+        font-weight: normal;
+    }
+    a{
+        text-decoration: none;
+        color: $bleu_button;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        font-size: 0.9em;
+        padding-top: 10vh;
+        padding-bottom: 5vh;
+        margin: auto;
+        width: 11vw;
+        outline: none;
+        &:focus{
+            text-decoration: underline;
+        }
+    }
+}
+#password{
+    background-image: url("../image/lock.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    &:focus{
+        background-image: url("../image/lock_focus.png");
+        transition: 200ms;
+    }
+}
+#username{
+    background-image: url("../image/user.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    &:focus{
+        background-image: url("../image/user_focus.png");
+        transition: 200ms; 
+    }
+}
+#submit_login{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    font-family: $font_titillium;
+    width: 22vw;
+    font-size: 1em;
+    margin-top: 5vh;
+    background-color: $orange;
+    color: white;
+    border: 1.5px solid $orange;
+    outline: none;
+    &:hover{
+        color: $orange;
+        background-color: white;
+        cursor: pointer;
+        transition: 200ms;
+    }
+    &:focus{
+        color: $orange;
+        background-color: $blanc_text;
+        cursor: pointer;
+        transition: 200ms;
+    }
+}
+#logo{
+    width: 20%;
+    display: block;
+    margin: auto;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+}
+.titre{
+    font-size: 2em;
+    text-align: center;
+    color: $bleu_text;
+}
+.soustitre{
+    margin: auto;
+    text-align: center;
+    width: 60vw;
+}
+.bouton{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    font-family: $font_titillium;
+    width: 15vw;
+    font-size: 1em;
+    margin-top: 10vh;
+    background-color: $orange;
+    color: white;
+    border: 2px solid $orange;
+    outline: none;
+    margin-bottom: 5vh;
+    &:hover{
+        color: $orange;
+        background-color: white;
+        cursor: pointer;
+        transition: 200ms;
+    }
+}
+#container_submit{
+    margin: auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+strong{
+    color: $orange;
+}
+.down-arrow{
+    margin: 10vh auto;
+    display: block;
+    width: 10vw;
+    img{
+        animation: arrow_bounce 2s infinite;
+        width: 40%;
+        margin: auto;
+        display: block;
+    }
+}
+#body_connexion{
+    background-color: $bleu_text;
+    header p{
+        color: $blanc_text;
+    }
+}
+#bottom{
+    background-color: $bleu_text;
+    h1{
+        color: #ecf0f1;
+        font-family: $font_titillium;
+        font-weight: normal;
+        text-align: center;
+        font-size: 2.3em;
+        padding-top: 5vh;
+    }
+}
+.triangle{
+    margin: auto;
+    width: 15%;
+    display: block;
+}
+.font_cryptowar{
+    font-family: $font_ubuntu;
+}
+#container_hacker, #container_tueur, #container_securite{
+    display: flex;
+    flex-direction: column;
+    img{
+        width: 30%;
+        margin: auto;
+        &:hover{
+            transform: scale(1.10);
+            transition: 300ms;
+        }
+    }
+    p{
+        font-size: 2em;
+        color: $blanc_text;
+        text-align: center;
+    }
+    a{
+        color: $blanc_text;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1em;
+        outline: none;
+        &:focus{
+            text-decoration: underline;
+        }
+        &:hover{
+            text-decoration: underline;
+            transition: 300ms;
+        }
+    }
+
+}
+#container_unite{
+    margin-top: 20vh;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25vh;
+}
+footer{
+    width: 90vw;
+    color:$blanc_text;
+    display: flex;
+    justify-content: space-around;
+}
+#left{
+    display: inline-flex;
+    a{
+        color: $blanc_text;
+        text-decoration: none;
+        margin-left: 2vw;
+        font-size: 1em;
+        margin-bottom: 2vh;
+    }
+    .lien:hover{
+        text-decoration: underline;
+        transition: 300ms;
+    }
+}
+#right{
+    width: 30vw;
+    img{
+        margin-left: 3vw;
+        width: 10%;
+        float: right;
+        padding-bottom: 2vh;
+        &:hover{
+            transform: scale(1.10);
+            transition: 300ms;
+        }
+    }
+}
