@@ -6,10 +6,17 @@ $blanc_text : #ecf0f1;
 $font_ubuntu : 'Ubuntu', sans-serif;
 $font_titillium : 'Titillium Web', sans-serif;
 
-@keyframes autofill {
+@keyframes username {
     0%,100% {
         color: black;
         background-image: url("../image/user.png");
+        background-color: transparent;
+    }
+}
+@keyframes email{
+    0%,100% {
+        color: black;
+        background-image: url("../image/mail.png");
         background-color: transparent;
     }
 }
@@ -24,10 +31,20 @@ $font_titillium : 'Titillium Web', sans-serif;
         transform: translateY(-15px);
       }
 }
-
-#username:-webkit-autofill {
+@mixin background_input($image) {
+    background-image: $image;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+#username:-webkit-autofill{
     animation-delay: 1s; 
-    animation-name: autofill;
+    animation-name: username;
+    animation-fill-mode: both;
+}
+#email:-webkit-autofill{
+    animation-delay: 1s; 
+    animation-name: email;
     animation-fill-mode: both;
 }
 html{
@@ -50,7 +67,7 @@ header p{
     font-weight: bold;
     margin-bottom: 10vh;
 }
-#username, #password{
+#username, #password, #email{
     font-family: $font_titillium;
     width: 20vw;
     margin:auto;
@@ -73,7 +90,7 @@ form{
     justify-content: center;
     flex-direction: column;
 }
-#formulaire{
+#formulaire, #formulaire_inscription{
     margin: auto;
     width: 30vw;
     margin-bottom: 10vh;
@@ -97,7 +114,7 @@ form{
         padding-top: 10vh;
         padding-bottom: 5vh;
         margin: auto;
-        width: 11vw;
+        width: 15vw;
         outline: none;
         &:focus{
             text-decoration: underline;
@@ -105,22 +122,23 @@ form{
     }
 }
 #password{
-    background-image: url("../image/lock.png");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: left;
+    @include background_input(url("../image/lock.png"));
     &:focus{
-        background-image: url("../image/lock_focus.png");
+        @include background_input(url("../image/lock_focus.png"));
         transition: 200ms;
     }
 }
 #username{
-    background-image: url("../image/user.png");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: left;
+    @include background_input(url("../image/user.png"));
     &:focus{
-        background-image: url("../image/user_focus.png");
+      @include background_input(url("../image/user_focus.png"));
+        transition: 200ms; 
+    }
+}
+#email{
+    @include background_input(url("../image/mail.png"));
+    &:focus{
+        @include background_input(url("../image/mail_focus.png"));
         transition: 200ms; 
     }
 }
@@ -206,11 +224,15 @@ strong{
         display: block;
     }
 }
-#body_connexion{
+#body_connexion, #body_inscription{
     background-color: $bleu_text;
     header p{
         color: $blanc_text;
     }
+}
+#body_inscription p{
+    color: red;
+    text-align: center;
 }
 #bottom{
     background-color: $bleu_text;

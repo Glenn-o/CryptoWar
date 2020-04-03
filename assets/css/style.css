@@ -1,4 +1,4 @@
-@-webkit-keyframes autofill {
+@-webkit-keyframes username {
   0%, 100% {
     color: black;
     background-image: url("../image/user.png");
@@ -6,10 +6,26 @@
   }
 }
 
-@keyframes autofill {
+@keyframes username {
   0%, 100% {
     color: black;
     background-image: url("../image/user.png");
+    background-color: transparent;
+  }
+}
+
+@-webkit-keyframes email {
+  0%, 100% {
+    color: black;
+    background-image: url("../image/mail.png");
+    background-color: transparent;
+  }
+}
+
+@keyframes email {
+  0%, 100% {
+    color: black;
+    background-image: url("../image/mail.png");
     background-color: transparent;
   }
 }
@@ -47,8 +63,17 @@
 #username:-webkit-autofill {
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
-  -webkit-animation-name: autofill;
-          animation-name: autofill;
+  -webkit-animation-name: username;
+          animation-name: username;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+#email:-webkit-autofill {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-name: email;
+          animation-name: email;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
@@ -76,7 +101,7 @@ header p {
   margin-bottom: 10vh;
 }
 
-#username, #password {
+#username, #password, #email {
   font-family: "Titillium Web", sans-serif;
   width: 20vw;
   margin: auto;
@@ -90,7 +115,7 @@ header p {
   font-size: 1em;
 }
 
-#username:focus, #password:focus {
+#username:focus, #password:focus, #email:focus {
   border: none;
   border-bottom: 2px solid #ff9518;
   -webkit-transition: 200ms;
@@ -110,14 +135,14 @@ form {
           flex-direction: column;
 }
 
-#formulaire {
+#formulaire, #formulaire_inscription {
   margin: auto;
   width: 30vw;
   margin-bottom: 10vh;
   background-color: white;
 }
 
-#formulaire h1 {
+#formulaire h1, #formulaire_inscription h1 {
   color: #26313D;
   font-size: 1.9em;
   text-align: center;
@@ -127,7 +152,7 @@ form {
   font-weight: normal;
 }
 
-#formulaire a {
+#formulaire a, #formulaire_inscription a {
   text-decoration: none;
   color: #287AE6;
   font-weight: bold;
@@ -137,11 +162,11 @@ form {
   padding-top: 10vh;
   padding-bottom: 5vh;
   margin: auto;
-  width: 11vw;
+  width: 15vw;
   outline: none;
 }
 
-#formulaire a:focus {
+#formulaire a:focus, #formulaire_inscription a:focus {
   text-decoration: underline;
 }
 
@@ -154,6 +179,9 @@ form {
 
 #password:focus {
   background-image: url("../image/lock_focus.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
   -webkit-transition: 200ms;
   transition: 200ms;
 }
@@ -167,6 +195,25 @@ form {
 
 #username:focus {
   background-image: url("../image/user_focus.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+#email {
+  background-image: url("../image/mail.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+#email:focus {
+  background-image: url("../image/mail_focus.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
   -webkit-transition: 200ms;
   transition: 200ms;
 }
@@ -273,12 +320,17 @@ strong {
   display: block;
 }
 
-#body_connexion {
+#body_connexion, #body_inscription {
   background-color: #26313D;
 }
 
-#body_connexion header p {
+#body_connexion header p, #body_inscription header p {
   color: #ecf0f1;
+}
+
+#body_inscription p {
+  color: red;
+  text-align: center;
 }
 
 #bottom {

@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Ubuntu&display=swap" rel="stylesheet">
 </head>
-<body id="body_connexion">
+<body id="body_inscription">
     <header>
         <i><p>CryptoWar</p></i>
     </header>
-    <div id="formulaire">
-        <h1>Se connecter</h1>
-        <form action="../php/connexion_post.php" method="POST">
+    <div id="formulaire_inscription">
+        <h1>S'inscrire</h1>
+        <form action="../php/inscription_post.php" method="POST">
             <input type="text" id="username" name="username" placeholder="Pseudo">
+            <input type="email" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Mot de passe">
-            <input type="submit" id="submit_login" name="submit" value="connexion">
+            <input type="password" id="password" name="password_again" placeholder="Retapez votre mot de passe">
+            <input type="submit" id="submit_login" name="submit" value="inscription">
         </form>
-        <a href="#">Mot de passe oublié ?</a>
+        <a href="connexion.html">Vous avez déjà un compte ?</a>
     </div>
 </body>
 </html>
