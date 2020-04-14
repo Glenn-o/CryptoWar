@@ -170,6 +170,11 @@ form {
   text-decoration: underline;
 }
 
+#formulaire p, #formulaire_inscription p {
+  color: red;
+  text-align: center;
+}
+
 #password {
   background-image: url("../image/lock.png");
   background-size: 20px;
@@ -326,11 +331,6 @@ strong {
 
 #body_connexion header p, #body_inscription header p {
   color: #ecf0f1;
-}
-
-#body_inscription p {
-  color: red;
-  text-align: center;
 }
 
 #bottom {

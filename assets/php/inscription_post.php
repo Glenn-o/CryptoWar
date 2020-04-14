@@ -1,31 +1,30 @@
 <?php
-
-$bdd = new PDO('mysql:host=127.0.0.1:3307;dbname=cryptowar_db', 'root', '');
-
-$pseudo = $_POST['username'];
-$email = $_POST['email'];
-$motDePasse = $_POST['password'];
+$pseudo = htmlentities($_POST['username']); 
+$email = htmlentities($_POST['email']);
+$motDePasse = htmlentities($_POST['password']);
 $mdp_correspond = "";
 $champ_formulaire = "";
 $inscrit = "";
 $email_existe = "";
 $niveau = 0;
+$bdd = new PDO('mysql:host=127.0.0.1:3307;dbname=cryptowar_db', 'root', '');
 
 if(!(empty($_POST['username']) && empty($_POST['email']) && empty($_POST['password']))){
     if ($_POST['password'] != $_POST['password_again']){
         $mdp_correspond = "Les mots de passe ne correspondent pas !";
     }
     else{
-        $stmt = $bdd->prepare("SELECT Email FROM joueur WHERE email=?");
-        $stmt->execute([$email]); 
-        $user = $stmt->fetch();
+        $verif_mail = $bdd->prepare("SELECT Email FROM joueur WHERE email=?");
+        $verif_mail->execute([$email]); 
+        $user = $verif_mail->fetch();
         if($user)
         {
             $email_existe = "Un compte utilise déjà cette adresse mail";
         }
         else{
-            $req = $bdd->prepare('INSERT INTO joueur(Pseudo, Email, Motdepasse, Niveau) VALUES(:pseudo, :email, :motDePasse, :niveau)');
-            $req->execute(array('pseudo'=> $pseudo, 'email'=>$email, 'motDePasse'=>$motDePasse, 'niveau'=> $niveau));
+            $mdp_crypte = sha1($motDePasse);
+            $insertmbr = $bdd->prepare('INSERT INTO joueur(Pseudo, Email, Motdepasse, Niveau) VALUES(:pseudo, :email, :motDePasse, :niveau)');
+            $insertmbr->execute(array('pseudo'=> $pseudo, 'email'=>$email, 'motDePasse'=>$mdp_crypte, 'niveau'=> $niveau));
             $inscrit = "Félicitation, vous êtes inscrit !";
         }
     }

@@ -120,6 +120,10 @@ form{
             text-decoration: underline;
         }
     }
+    p{
+        color: red;
+        text-align: center;
+    }
 }
 #password{
     @include background_input(url("../image/lock.png"));
@@ -229,10 +233,6 @@ strong{
     header p{
         color: $blanc_text;
     }
-}
-#body_inscription p{
-    color: red;
-    text-align: center;
 }
 #bottom{
     background-color: $bleu_text;
