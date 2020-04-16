@@ -3,6 +3,7 @@ $orange :  #ff9518;
 $bleu_button : #287AE6;
 $gris_fonce : #323C48;
 $blanc_text : #ecf0f1;
+$gris_text : #898989;
 $font_ubuntu : 'Ubuntu', sans-serif;
 $font_titillium : 'Titillium Web', sans-serif;
 
@@ -323,4 +324,93 @@ footer{
             transition: 300ms;
         }
     }
+}
+#menu{
+    padding-top: 0;
+    margin-top: 0;
+    width: 15vw;
+    height: 100vh;
+    nav{
+        p{
+        color: $gris_text;
+        margin-left: 2vw;
+        }
+    }
+    h1{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        margin-top: 0;
+        font-family: $font_ubuntu;
+        font-style: italic;
+        text-align: center;
+    }
+    ul{
+        text-align: center;
+        list-style-type: none;
+        padding-left: 0;
+        li{
+            padding-top: 1.5vh;
+            padding-bottom: 1.5vh;
+            &:hover{
+                background-color: $orange;
+                transition: 300ms;
+                color: $blanc_text;
+            }
+        }
+        img{
+            width: 8%;
+            margin-left: -3vw;
+            margin-right: 1vw;
+        }
+        a{
+            text-decoration: none;
+            color: $bleu_text;
+        }
+    }
+    .focus{
+        background-color: $orange;
+        color: $blanc_text;
+    }
+}
+#main{
+    margin-left: 0;
+    padding-left: 0;
+    background-color: $bleu_text;
+    width: 85vw;
+    height: 100vh;
+    #info_joueur{
+        display: flex;
+        flex-direction: row;
+        float: right;
+        margin-right: 2vw;
+        align-items: center;
+        img{
+            width: auto;
+            height: 2vh;
+            cursor: pointer;
+        }
+        .fleche{
+            transform: rotate(90deg);
+        }
+        .cloche{
+            margin-right: 1vw;
+        }
+        p{
+            margin-right: 1vw;
+        }
+    }
+    h1{
+        color: $blanc_text;
+        text-align: center;
+        margin-top: 2vh;
+        margin-left: 10vw;
+    }
+    p{
+        color: $blanc_text;
+        text-align: right;
+    }
+}
+#body_accueil{
+    display: inline-flex;
+    
 }

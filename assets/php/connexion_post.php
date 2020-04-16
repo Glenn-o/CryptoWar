@@ -1,16 +1,22 @@
 <?php
+session_start();
+if(empty($_POST['submit']))
+{
+    header('Location: ../html/connexion.html');
+}
 require 'joueur.php';
 $bdd = new PDO('mysql:host=127.0.0.1:3307;dbname=cryptowar_db', 'root', '');
 $email = htmlentities($_POST['email']);
+$_SESSION['email'] = $email;
 $motDePasse = htmlentities($_POST['password']);
 $pasdecompte = "";
 $mdp_different = "";
 $champ_formulaire = "";
-$player = new Joueur;
+$joueur = new Joueur;
 
 if(!(empty($_POST['email']) && empty($_POST['password'])))
 {
-    $player->connexion($email, $motDePasse);
+    $joueur->connexion($email, $motDePasse);
 }
 else
 {

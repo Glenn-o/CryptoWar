@@ -1,15 +1,33 @@
 <?php
 class Joueur
 {
-    private $pseudo;
-    private $niveau;
+    // private $pseudo;
+    // private $niveau;
 
-    function get_pseudo()
+    // function get_pseudo()
+    // {
+    //     return $this->pseudo;
+    // }
+
+    function get_pseudo($email)//pour recupérer le pseudo avec l'email
     {
-        return $this->pseudo;
-    }
+        global $bdd;
+        $recup = $bdd->prepare("SELECT Pseudo FROM joueur where email = ?");
+        $recup->execute([$email]);
+        $recup_pseudo = $recup->fetch();
+        echo $recup_pseudo[0];
 
-    function connexion($email, $mdp)
+    }
+    function get_niveau($email)//pour recupérer le niveau avec l'email
+    {
+        global $bdd;
+        $recup = $bdd->prepare("SELECT Niveau FROM joueur where email = ?");
+        $recup->execute([$email]);
+        $recup_niveau = $recup->fetch();
+        echo $recup_niveau[0];
+ 
+    }
+    function connexion($email, $mdp)//pour se connecter
     {
         global $bdd;
         $verif_mail = $bdd->prepare("SELECT Email FROM joueur WHERE email=?");
@@ -22,7 +40,7 @@ class Joueur
             $mdp_existe = $verif_mdp->fetch();
             if($mdp_existe)
             {
-                header('Location: http://www.google.com/');
+                header('Location: ../../index.php');
             }
             else
             {

@@ -1,4 +1,8 @@
 <?php
+if(empty($_POST['submit']))
+{
+    header('Location: ../html/inscription.html');
+}
 $pseudo = htmlentities($_POST['username']); 
 $email = htmlentities($_POST['email']);
 $motDePasse = htmlentities($_POST['password']);
