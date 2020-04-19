@@ -5,8 +5,10 @@ if(empty($_SESSION['email']))
     header('Location: assets/html/index.html');
 }
 require 'assets/php/joueur.php';
+require 'assets/php/ressource.php';
 $bdd = new PDO('mysql:host=127.0.0.1:3307;dbname=cryptowar_db', 'root', '');
 $joueur = new Joueur;
+$ressource = new Ressource;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,11 +20,40 @@ $joueur = new Joueur;
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Ubuntu&display=swap" rel="stylesheet">
 </head>
 <body id="body_accueil">
-   <?php require 'assets/php/menu.php';?>
+    <section id="menu">
+            <h1>CryptoWar</h1>
+            <nav>
+                <p>Menu</p>
+                <ul>
+                    <a href=""><li class="focus"><img src="assets/image/home_focus.png" alt="logo_accueil">Accueil</li></a>
+                    <a href=""><li><img src="assets/image/swords.png" alt="logo_unite">Unités</li></a>
+                    <a href=""><li><img src="assets/image/run.png" alt="logo_action">Action</li></a>
+                    <a href=""><li><img src="assets/image/hangar.png" alt="logo_hangar">Entrepôt</li></a>
+                    <a href=""><li><img src="assets/image/mail.png" alt="logo_mail">Message</li></a>
+                </ul>
+            </nav>
+    </section>
     <section id="main">
         <?php require 'assets/php/info_joueur.php';?>
         <h1>Accueil</h1>
-        <a href="assets/php/deconnexion.php">déconnexion</a>
+        <div id="container_ressource">
+            <div id="bitcoin">
+                <strong><p>Bitcoin</p></strong>
+                <p class="prix"><?php echo ($ressource->get_bitcoin_price()); ?> €</p>
+                <p><?php echo($ressource->get_bitcoin($joueur->get_id($_SESSION['email'])));?></p>
+            </div>
+            <div id="ethereum">
+                <strong><p>Ethereum</p></strong>
+                <p class="prix"><?php echo($ressource->get_ethereum_price()); ?> €</p>
+                <p><?php echo($ressource->get_ethereum($joueur->get_id($_SESSION['email'])));?></p>
+            </div>
+            <div id="litecoin">
+                <strong><p>Litecoin</p></strong>
+                <p class="prix"><?php echo($ressource->get_litecoin_price()); ?> €</p>
+                <p><?php echo($ressource->get_litecoin($joueur->get_id($_SESSION['email'])));?></p>
+            </div>
+        </div>
     </section>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

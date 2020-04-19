@@ -380,23 +380,41 @@ footer{
     height: 100vh;
     #info_joueur{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         float: right;
-        margin-right: 2vw;
-        align-items: center;
-        img{
-            width: auto;
-            height: 2vh;
-            cursor: pointer;
+        #info{
+            display: flex;
+            flex-direction: row;
+            margin-right: 2vw;
+            align-items: center;
         }
-        .fleche{
+        #fleche{
             transform: rotate(90deg);
+        }
+        img{
+            height: 2vh;
+            width: auto;
+            cursor: pointer;
         }
         .cloche{
             margin-right: 1vw;
         }
         p{
             margin-right: 1vw;
+        }
+        #menu_joueur{
+            display: flex;
+            flex-direction: column;
+            width: 10vw;
+            text-align: center;
+            a{
+                text-decoration: none;
+                color: $blanc_text;
+                display: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
         }
     }
     h1{
@@ -407,10 +425,25 @@ footer{
     }
     p{
         color: $blanc_text;
-        text-align: right;
+        text-align: center;
+    }
+    #container_ressource{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10vh;
+        #bitcoin, #litecoin, #ethereum{
+            width: 20vw;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: $gris_fonce;
+        }
+        .prix{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
 }
 #body_accueil{
     display: inline-flex;
-    
 }

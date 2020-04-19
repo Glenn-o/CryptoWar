@@ -18,7 +18,7 @@ if(!(empty($_POST['username']) && empty($_POST['email']) && empty($_POST['passwo
         $mdp_correspond = "Les mots de passe ne correspondent pas !";
     }
     else{
-        $verif_mail = $bdd->prepare("SELECT Email FROM joueur WHERE email=?");
+        $verif_mail = $bdd->prepare("SELECT Email FROM joueur WHERE email=?");//verification de l'email dans la bdd
         $verif_mail->execute([$email]); 
         $user = $verif_mail->fetch();
         if($user)
@@ -37,7 +37,6 @@ else{
     $champ_formulaire = "Tous les champs doivent être remplis";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

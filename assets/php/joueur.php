@@ -27,6 +27,14 @@ class Joueur
         echo $recup_niveau[0];
  
     }
+    function get_id($email)
+    {
+        global $bdd;
+        $recup = $bdd->prepare("SELECT Id_Joueur FROM joueur where email = ?");
+        $recup->execute([$email]);
+        $recup_id = $recup->fetch();
+        return $recup_id[0];
+    }
     function connexion($email, $mdp)//pour se connecter
     {
         global $bdd;
