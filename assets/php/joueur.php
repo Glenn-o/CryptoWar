@@ -27,13 +27,30 @@ class Joueur
         echo $recup_niveau[0];
  
     }
-    function get_id($email)
+    function get_id($email)//pour récupérer l'id avec l'email
     {
         global $bdd;
         $recup = $bdd->prepare("SELECT Id_Joueur FROM joueur where email = ?");
         $recup->execute([$email]);
         $recup_id = $recup->fetch();
         return $recup_id[0];
+    }
+    function get_classement()//pour recupérer le classement général
+    {
+        global $bdd;
+        $recup = $bdd->query('SELECT Pseudo, argent FROM `joueur` ORDER BY `argent` DESC');
+        $numero = 0;
+        while ($row = $recup->fetch()) 
+        {
+            $numero ++;
+            echo "<p>" . "<span class='left'>" . $row['Pseudo'] . "</span>" . "<span class='center'> ". $row['argent'] . " €" . "</span>" . "<span id='rights'>" . $numero . "</span>" . "</p>";
+        }
+    }
+    function set_argent($argent, $email)//pour mettre à jour l'argent du joueur dans la bdd
+    {
+        global $bdd;
+        $insertargent = $bdd->prepare('UPDATE joueur set argent = :argent where email = :email');
+        $insertargent->execute(array('argent'=>$argent, 'email'=>$email));
     }
     function connexion($email, $mdp)//pour se connecter
     {

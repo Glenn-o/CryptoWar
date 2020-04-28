@@ -1,7 +1,7 @@
 <?php 
 class Ressource
 {
-    function get_bitcoin($Id_joueur)
+    function get_bitcoin($Id_joueur)//pour récupérer le nombre de bitcoin que le joueur possède
     {
         global $bdd;
         $recup = $bdd->prepare(" SELECT Bitcoin FROM ressources JOIN miner ON ressources.Id_Ressources = miner.Id_Joueur where Id_joueur = ?");
@@ -27,10 +27,10 @@ class Ressource
     }
     function get_bitcoin_price()
     {
-        $url = "https://www.bitstamp.net/api/v2/ticker/btceur/";
+        $url = "https://www.bitstamp.net/api/v2/ticker/btceur/";//url de l'api pour le prix du bitcoin
         $fgc = file_get_contents($url);
-        $json = json_decode($fgc, true);
-        $price = $json['last'];
+        $json = json_decode($fgc, true);//decode du fichier en json
+        $price = $json['last'];//la commande last de l'api sert à avoir le prix du bitcoin le plus récent
         return $price;
     }
     function get_ethereum_price()

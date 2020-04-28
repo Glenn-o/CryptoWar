@@ -402,7 +402,7 @@ strong {
   transition: 300ms;
 }
 
-#container_unite {
+#container_unite1 {
   margin-top: 20vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -515,7 +515,13 @@ footer {
   color: #ecf0f1;
 }
 
-#main {
+#body_accueil {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#body_accueil #main {
   margin-left: 0;
   padding-left: 0;
   background-color: #26313D;
@@ -523,7 +529,7 @@ footer {
   height: 100vh;
 }
 
-#main #info_joueur {
+#body_accueil #main #info_joueur {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -534,7 +540,7 @@ footer {
   float: right;
 }
 
-#main #info_joueur #info {
+#body_accueil #main #info_joueur #info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -548,26 +554,26 @@ footer {
           align-items: center;
 }
 
-#main #info_joueur #fleche {
+#body_accueil #main #info_joueur #fleche {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-#main #info_joueur img {
+#body_accueil #main #info_joueur img {
   height: 2vh;
   width: auto;
   cursor: pointer;
 }
 
-#main #info_joueur .cloche {
+#body_accueil #main #info_joueur .cloche {
   margin-right: 1vw;
 }
 
-#main #info_joueur p {
+#body_accueil #main #info_joueur p {
   margin-right: 1vw;
 }
 
-#main #info_joueur #menu_joueur {
+#body_accueil #main #info_joueur #menu_joueur {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -579,29 +585,29 @@ footer {
   text-align: center;
 }
 
-#main #info_joueur #menu_joueur a {
+#body_accueil #main #info_joueur #menu_joueur a {
   text-decoration: none;
   color: #ecf0f1;
   display: none;
 }
 
-#main #info_joueur #menu_joueur a:hover {
+#body_accueil #main #info_joueur #menu_joueur a:hover {
   text-decoration: underline;
 }
 
-#main h1 {
+#body_accueil #main .accueil {
   color: #ecf0f1;
   text-align: center;
   margin-top: 2vh;
   margin-left: 10vw;
 }
 
-#main p {
+#body_accueil #main p {
   color: #ecf0f1;
   text-align: center;
 }
 
-#main #container_ressource {
+#body_accueil #main #container_ressource {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -610,7 +616,7 @@ footer {
   margin-top: 10vh;
 }
 
-#main #container_ressource #bitcoin, #main #container_ressource #litecoin, #main #container_ressource #ethereum {
+#body_accueil #main #container_ressource #bitcoin, #body_accueil #main #container_ressource #litecoin, #body_accueil #main #container_ressource #ethereum {
   width: 20vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -623,14 +629,194 @@ footer {
   background-color: #323C48;
 }
 
-#main #container_ressource .prix {
+#body_accueil #main #container_ressource .prix {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-#body_accueil {
+#body_accueil #main #container_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 10vh;
+}
+
+#body_accueil #main #container_argent_joueur {
+  width: 30vw;
+  background-color: #323C48;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.2em;
+  height: 40vh;
+}
+
+#body_accueil #main #container_argent_joueur #argent_joueur, #body_accueil #main #container_argent_joueur #classement_joueur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ecf0f1;
+}
+
+#body_accueil #main #container_argent_joueur #argent_joueur .argent, #body_accueil #main #container_argent_joueur #classement_joueur .argent {
+  margin-left: 10vw;
+  font-weight: bold;
+}
+
+#body_accueil #main #container_argent_joueur img {
+  width: auto;
+  height: 5vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+#body_accueil #main #container_classement {
+  width: 30vw;
+  background-color: #323C48;
+  overflow: auto;
+  height: 40vh;
+}
+
+#body_accueil #main #container_classement .left, #body_accueil #main #container_classement .center {
+  margin-right: 7vw;
+}
+
+#body_accueil #main #container_classement h1 {
+  text-align: center;
+  color: #ecf0f1;
+}
+
+#body_unite {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+}
+
+#body_unite #main_unite {
+  margin-left: 0;
+  padding-left: 0;
+  background-color: #26313D;
+  width: 85vw;
+  height: 100vh;
+}
+
+#body_unite #main_unite #info_joueur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: right;
+  color: #ecf0f1;
+}
+
+#body_unite #main_unite #info_joueur #info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-right: 2vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#body_unite #main_unite #info_joueur #fleche {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#body_unite #main_unite #info_joueur img {
+  height: 2vh;
+  width: auto;
+  cursor: pointer;
+}
+
+#body_unite #main_unite #info_joueur .cloche {
+  margin-right: 1vw;
+}
+
+#body_unite #main_unite #info_joueur p {
+  margin-right: 1vw;
+}
+
+#body_unite #main_unite #info_joueur #menu_joueur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10vw;
+  text-align: center;
+}
+
+#body_unite #main_unite #info_joueur #menu_joueur a {
+  text-decoration: none;
+  color: #ecf0f1;
+  display: none;
+}
+
+#body_unite #main_unite #info_joueur #menu_joueur a:hover {
+  text-decoration: underline;
+}
+
+#body_unite #main_unite .unite {
+  color: #ecf0f1;
+  text-align: center;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+
+#body_unite #main_unite #container_unite2 {
+  margin-top: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#body_unite #main_unite #container_unite2 #container_hack, #body_unite #main_unite #container_unite2 #container_tueur_a_gages, #body_unite #main_unite #container_unite2 #container_dev {
+  color: #ecf0f1;
+  text-align: center;
+}
+
+#body_unite #main_unite #container_unite2 #container_hack img, #body_unite #main_unite #container_unite2 #container_tueur_a_gages img, #body_unite #main_unite #container_unite2 #container_dev img {
+  width: 30%;
+}
+
+#body_unite #main_unite #container_unite2 #container_hack button, #body_unite #main_unite #container_unite2 #container_tueur_a_gages button, #body_unite #main_unite #container_unite2 #container_dev button {
+  background-color: #287AE6;
+  color: #ecf0f1;
+  padding: 10px 50px;
+  border: none;
+}
+
+#body_unite #main_unite #container_unite2 #container_hack button:hover, #body_unite #main_unite #container_unite2 #container_tueur_a_gages button:hover, #body_unite #main_unite #container_unite2 #container_dev button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
