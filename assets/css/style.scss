@@ -570,4 +570,66 @@ footer{
     }
 
 }
+#body_message{
+    display: inline-flex;
+    #main_message{
+        margin-left: 0;
+        padding-left: 0;
+        background-color: $bleu_text;
+        width: 85vw;
+        height: 100vh;
+        #chat{
+            width: 50vw;
+            background-color: $blanc_text;
+            margin: auto;
+            height: 40vh;
+            overflow: scroll;
+        }
+        #form_chat{
+            width: 60vw;
+            display: flex;
+            flex-direction: row;
+        }
+        #info_joueur{
+            display: flex;
+            flex-direction: column;
+            float: right;
+            color: $blanc_text;
+            #info{
+                display: flex;
+                flex-direction: row;
+                margin-right: 2vw;
+                align-items: center;
+            }
+            #fleche{
+                transform: rotate(90deg);
+            }
+            img{
+                height: 2vh;
+                width: auto;
+                cursor: pointer;
+            }
+            .cloche{
+                margin-right: 1vw;
+            }
+            p{
+                margin-right: 1vw;
+            }
+            #menu_joueur{
+                display: flex;
+                flex-direction: column;
+                width: 10vw;
+                text-align: center;
+                a{
+                    text-decoration: none;
+                    color: $blanc_text;
+                    display: none;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
 

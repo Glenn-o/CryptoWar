@@ -38,8 +38,8 @@ $joueur->set_argent(($ressource->get_bitcoin_price() * $ressource->get_bitcoin($
         <div id="info_joueur">
             <div id="info">
                 <img src="assets/image/bell.png" class="cloche" alt="img_notification">
-                <p><?php $joueur->get_niveau($_SESSION['email']) ?></p>
-                <p><?php $joueur->get_pseudo($_SESSION['email']);?></p>
+                <p><?php echo $joueur->get_niveau($_SESSION['email']) ?></p>
+                <p><?php echo $joueur->get_pseudo($_SESSION['email']);?></p>
                 <img src="assets/image/next_white.png" alt="img_down" id="fleche">
             </div>
             <div id="menu_joueur">

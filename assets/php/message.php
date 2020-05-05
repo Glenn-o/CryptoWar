@@ -9,17 +9,20 @@ require 'ressource.php';
 $bdd = new PDO('mysql:host=127.0.0.1:3307;dbname=cryptowar_db', 'root', '');
 $joueur = new Joueur;
 $ressource = new Ressource;
+if(isset($_POST['submit'])){
+    $joueur->set_message(($joueur->get_pseudo($_SESSION['email'])), ($_POST['contenu']), (intval($joueur->get_id($_SESSION['email']))));
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unités</title>
+    <title>Message</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Ubuntu&display=swap" rel="stylesheet">
 </head>
-<body id="body_unite">
+<body id="body_message" onLoad="refresh_div()">
     <section id="menu">
             <h1>CryptoWar</h1>
             <nav>
@@ -33,35 +36,17 @@ $ressource = new Ressource;
                 </ul>
             </nav>
     </section>
-    <section id="main_unite">
+    <section id="main_message">
         <?php require 'info_joueur.php';?>
-        <h1 class="unite">Unités</h1>
-        <div id="container_unite2">
-            <div id="container_hack">
-                <img src="../image/hacker.png" alt="logo_hacker">
-                <p>Hacker</p>
-                <p>Vous en possédez :</p>
-                <button>Acheter</button>
-                <p>100€ / Unité</p>
-            </div>
-
-            <div id="container_tueur_a_gages">
-                <img src="../image/blood.png" alt="blood_icon">
-                <p>Tueur à gages</p>
-                <p>Vous en possédez :</p>
-                <button>Acheter</button>
-                <p>10 000€ / Unité</p>
-            </div>
-
-            <div id="container_dev">
-                <img src="../image/cyber-security.png" alt="security_icon">
-                <p>Développeur en Cyber-Sécurité</p>
-                <p>Vous en possédez :</p>
-                <button>Acheter</button>
-                <p>600€ / Jour <br> + <br> 100€ pour chaque protection</p>
-            </div>
+        <div id="chat">
+            <?php $joueur->get_message();?>
         </div>
+        <form action="message.php" method="POST" id="form_chat">
+            <input type="text" name="contenu">
+            <input type="submit" name="submit">
+        </form>
     </section>
     <script src="../js/app.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </body>
 </html>

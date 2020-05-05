@@ -15,7 +15,7 @@ class Joueur
         $recup = $bdd->prepare("SELECT Pseudo FROM joueur where email = ?");
         $recup->execute([$email]);
         $recup_pseudo = $recup->fetch();
-        echo $recup_pseudo[0];
+        return $recup_pseudo[0];
 
     }
     function get_niveau($email)//pour recupérer le niveau avec l'email
@@ -24,7 +24,7 @@ class Joueur
         $recup = $bdd->prepare("SELECT Niveau FROM joueur where email = ?");
         $recup->execute([$email]);
         $recup_niveau = $recup->fetch();
-        echo $recup_niveau[0];
+        return $recup_niveau[0];
  
     }
     function get_id($email)//pour récupérer l'id avec l'email
@@ -45,6 +45,20 @@ class Joueur
             $numero ++;
             echo "<p>" . "<span class='left'>" . $row['Pseudo'] . "</span>" . "<span class='center'> ". $row['argent'] . " €" . "</span>" . "<span id='rights'>" . $numero . "</span>" . "</p>";
         }
+    }
+    function get_message(){
+        global $bdd;
+        $recup = $bdd->query('SELECT user_message, contenu_message FROM `message` ORDER BY `message`.`Id_message`  DESC');
+        while ($row = $recup->fetch()) 
+        {
+            echo "<p>"  . $row['user_message'] . " : " . $row['contenu_message'] . "</p>";
+        }
+
+    }
+    function set_message($pseudo, $contenu, $id_joueur){
+        global $bdd;
+        $insertmsg = $bdd->prepare("INSERT INTO message (user_message, contenu_message, Id_Joueur) VALUES(:user_message, :contenu_message, :Id_joueur)");
+        $insertmsg->execute(array('user_message'=> $pseudo, 'contenu_message'=>$contenu, 'Id_joueur'=>$id_joueur));
     }
     function set_argent($argent, $email)//pour mettre à jour l'argent du joueur dans la bdd
     {

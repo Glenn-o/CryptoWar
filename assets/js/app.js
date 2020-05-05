@@ -17,3 +17,9 @@ fleche.addEventListener("click", function(){
     }
     
 });
+
+function refresh(){
+
+    $("#chat").load('../php/message.php #chat');
+}
+setInterval('refresh()', 1000);

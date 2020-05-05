@@ -819,4 +819,104 @@ footer {
   transition: 300ms;
   cursor: pointer;
 }
+
+#body_message {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#body_message #main_message {
+  margin-left: 0;
+  padding-left: 0;
+  background-color: #26313D;
+  width: 85vw;
+  height: 100vh;
+}
+
+#body_message #main_message #chat {
+  width: 50vw;
+  background-color: #ecf0f1;
+  margin: auto;
+  height: 40vh;
+  overflow: scroll;
+}
+
+#body_message #main_message #form_chat {
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#body_message #main_message #info_joueur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: right;
+  color: #ecf0f1;
+}
+
+#body_message #main_message #info_joueur #info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-right: 2vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#body_message #main_message #info_joueur #fleche {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#body_message #main_message #info_joueur img {
+  height: 2vh;
+  width: auto;
+  cursor: pointer;
+}
+
+#body_message #main_message #info_joueur .cloche {
+  margin-right: 1vw;
+}
+
+#body_message #main_message #info_joueur p {
+  margin-right: 1vw;
+}
+
+#body_message #main_message #info_joueur #menu_joueur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10vw;
+  text-align: center;
+}
+
+#body_message #main_message #info_joueur #menu_joueur a {
+  text-decoration: none;
+  color: #ecf0f1;
+  display: none;
+}
+
+#body_message #main_message #info_joueur #menu_joueur a:hover {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=style.css.map */
